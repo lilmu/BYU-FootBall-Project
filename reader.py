@@ -200,8 +200,8 @@ class reader():
 
 if __name__ == "__main__":
     # where the coordinate are saved ---------- need to be changed -----------
-    input_path = "/home/ephraimpan/football_data/fixed_coordinate/"
+    input_path = "./football_data/fixed_coordinate/"
     # where the prepocessed data are saved ---------- need to be changed -----------
-    save_path = "/home/ephraimpan/football_data/save_datas/"
+    save_path = "./football_data/save_datas/"
 
     data = reader(input_path,save_path)

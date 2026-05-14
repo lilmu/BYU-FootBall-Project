@@ -51,11 +51,11 @@ class trainer():
         self.save_every = 10 
         
         # where the prepocessed data are saved ---------- need to be changed -----------
-        save_Path = "/home/ephraimpan/football_data/save_datas/"
+        save_Path = "./football_data/save_datas/"
         # where the model is going to save ---------- need to be changed -----------
-        self.save_model_path = "/home/ephraimpan/football_project/model/"
+        self.save_model_path = "./football_project/model/"
         # where the loss and accuracy plot is going to save ---------- need to be changed -----------
-        self.save_pic_path = '/home/ephraimpan/football_project/pic/'
+        self.save_pic_path = './football_project/pic/'
         
         Path_test_player = Path(f"{save_Path}test_data.pt")
         Path_test_label = Path(f"{save_Path}test_label.pt")
@@ -170,7 +170,7 @@ class trainer():
                 e_loss,e_acc,pred_arr,label_arr = self.eval_helper()
 
                 # where the confusion matrix is going to save ---------- need to be changed -----------
-                mat_path = "/home/ephraimpan/football_project/off15/confusion_matrix/"
+                mat_path = "./football_project/off15/confusion_matrix/"
                 pred_arr = torch.flatten(pred_arr, start_dim=0, end_dim=-1)
                 label_arr_f = torch.flatten(label_arr,start_dim=0,end_dim=-1)
                 confusion_matrix_dispaly(pred_arr, label_arr_f,save_path= mat_path, fileName=f"{i}.jpg")
@@ -186,7 +186,7 @@ class trainer():
                 
 if __name__ == "__main__":
     # where the coordinate are saved ---------- need to be changed -----------
-    coordinate_Path = "/home/ephraimpan/football_data/fixed_coordinate/"
+    coordinate_Path = "./football_data/fixed_coordinate/"
 
     classifier = trainer(coordinate_Path)
     classifier.runAll()

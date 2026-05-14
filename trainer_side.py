@@ -57,9 +57,9 @@ class trainer():
         self.eval_every = 10
         self.save_every = 10 
         
-        data_path = "/home/ephraimpan/football_data/coordinate/"
-        self.save_model_path = "/home/ephraimpan/football_project/side/model/"
-        self.save_pic_path = '/home/ephraimpan/football_project/side/pic/'
+        data_path = "./football_data/coordinate/"
+        self.save_model_path = "./football_project/side/model/"
+        self.save_pic_path = './football_project/side/pic/'
 
         self.data = reader(data_path)
         test_data = football_dataset(Path_test_player, Path_test_label)
@@ -189,10 +189,10 @@ class trainer():
                 
 
 if __name__ == "__main__":
-    Path_test_player = Path("/home/ephraimpan/football_data/save_datas/side/test_data.pt")
-    Path_test_label = Path("/home/ephraimpan/football_data/save_datas/side/test_label.pt")
-    Path_train_player = Path("/home/ephraimpan/football_data/save_datas/side/train_data.pt")
-    Path_train_label = Path("/home/ephraimpan/football_data/save_datas/side/train_label.pt")
+    Path_test_player = Path("./football_data/save_datas/side/test_data.pt")
+    Path_test_label = Path("./football_data/save_datas/side/test_label.pt")
+    Path_train_player = Path("./football_data/save_datas/side/train_data.pt")
+    Path_train_label = Path("./football_data/save_datas/side/train_label.pt")
 
     classifier = trainer(Path_test_player, Path_test_label, Path_train_player, Path_train_label)
     classifier.runAll()

@@ -53,9 +53,9 @@ class trainer():
         self.eval_every = 10
         self.save_every = 10
         
-        data_path = "/home/ephraimpan/football_data/coordinate/"
-        self.save_model_path = "/home/ephraimpan/football_project/CE/model/"
-        self.save_pic_path = "/home/ephraimpan/football_project/CE/pic/"
+        data_path = "./football_data/coordinate/"
+        self.save_model_path = "./football_project/CE/model/"
+        self.save_pic_path = "./football_project/CE/pic/"
 
         self.data = reader(data_path)
         test_data = football_dataset(Path_test_player, Path_test_label)
@@ -180,7 +180,7 @@ class trainer():
             if i % self.eval_every == 0:
                 e_loss,e_acc,pred_arr,label_arr,player_arr = self.eval_helper()
 
-                mat_path = "/home/ephraimpan/football_project/CE/confusion_matrix/"
+                mat_path = "./football_project/CE/confusion_matrix/"
                 pred_arr = torch.flatten(pred_arr, start_dim=0, end_dim=-1)
                 label_arr_f = torch.flatten(label_arr,start_dim=0,end_dim=-1)
                 confusion_matrix_dispaly(pred_arr, label_arr_f,save_path= mat_path, fileName=f"{i}.jpg")
@@ -190,7 +190,7 @@ class trainer():
                 evaluation_epochNum.append(i)
                 print(f"trainig loss :{np.mean(train_loss)} | acc :{np.mean(train_acc)}%")
                 print("-----------------------------------------------------------------------")
-                visual_path = "/home/ephraimpan/football_project/CE/visualize/"
+                visual_path = "./football_project/CE/visualize/"
                 visualizer(self.model,player_arr,label_arr,visual_path,i)
 
             if i%self.save_every == 0:
@@ -198,10 +198,10 @@ class trainer():
                 
 
 
-Path_test_player = Path("/home/ephraimpan/football_data/save_datas/CE/test_data.pt")
-Path_test_label = Path("/home/ephraimpan/football_data/save_datas/CE/test_label.pt")
-Path_train_player = Path("/home/ephraimpan/football_data/save_datas/CE/train_data.pt")
-Path_train_label = Path("/home/ephraimpan/football_data/save_datas/CE/train_label.pt")
+Path_test_player = Path("./football_data/save_datas/CE/test_data.pt")
+Path_test_label = Path("./football_data/save_datas/CE/test_label.pt")
+Path_train_player = Path("./football_data/save_datas/CE/train_data.pt")
+Path_train_label = Path("./football_data/save_datas/CE/train_label.pt")
 
 classifier = trainer(Path_test_player, Path_test_label, Path_train_player, Path_train_label)
 classifier.runAll()

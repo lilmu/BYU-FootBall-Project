@@ -150,7 +150,7 @@ class reader():
         self.train = self.train.type(torch.float32)
         self.test = self.test.type(torch.float32)
 
-        save_path = "/home/ephraimpan/football_data/save_datas/CE/"
+        save_path = "./football_data/save_datas/CE/"
         if os.path.exists(save_path) == False:
             os.mkdir(save_path)
         torch.save(self.test[:,:,0:2],f'{save_path}test_data.pt')
@@ -159,7 +159,7 @@ class reader():
         torch.save(self.train[:,:,2:],f'{save_path}train_label.pt')
 
 if __name__ == "__main__":
-    dic_path = "/home/ephraimpan/football_data/fixed_coordinate/"
+    dic_path = "./football_data/fixed_coordinate/"
     data = reader(dic_path)
     
     #visulizer
